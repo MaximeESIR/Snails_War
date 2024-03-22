@@ -56,7 +56,7 @@ public class movement : MonoBehaviour
 
     }
 
-    // Cette méthode est appelée lorsque le collider du personnage entre en collision avec un autre collider
+    // Cette mï¿½thode est appelï¿½e lorsque le collider du personnage entre en collision avec un autre collider
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "terrain")
