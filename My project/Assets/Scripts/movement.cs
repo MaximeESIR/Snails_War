@@ -47,13 +47,6 @@ public class movement : MonoBehaviour
         {
             GetComponentsInChildren<MeshRenderer>().ToList().ForEach(m => m.material = mat_blue);
         }*/
-        if (Input.GetMouseButtonDown(0))
-        {
-            int i = Random.Range(0, 3);
-            changerCOULEUR(materials[i]);
-        }
-
-
     }
 
     // Cette m�thode est appel�e lorsque le collider du personnage entre en collision avec un autre collider
