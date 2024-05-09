@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -323,6 +323,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 435944921}
   m_CullTransparentMesh: 1
+--- !u!1 &613687690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4987546128911156987, guid: 44be2b84a84976a4da04a1bc5e42afb0, type: 3}
+  m_PrefabInstance: {fileID: 4987546128952650379}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &613687695
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613687690}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6abfef46cfcf92e4fa8429fab2f6de98, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1491,6 +1516,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4987546128911156986, guid: 44be2b84a84976a4da04a1bc5e42afb0, type: 3}
+      propertyPath: m_Size.y
+      value: 1.3913288
+      objectReference: {fileID: 0}
+    - target: {fileID: 4987546128911156986, guid: 44be2b84a84976a4da04a1bc5e42afb0, type: 3}
+      propertyPath: m_Center.x
+      value: -4.4554987e-13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4987546128911156986, guid: 44be2b84a84976a4da04a1bc5e42afb0, type: 3}
+      propertyPath: m_Center.y
+      value: 0.30433556
+      objectReference: {fileID: 0}
+    - target: {fileID: 4987546128911156986, guid: 44be2b84a84976a4da04a1bc5e42afb0, type: 3}
+      propertyPath: m_Center.z
+      value: -1.8235065e-13
+      objectReference: {fileID: 0}
     - target: {fileID: 4987546128911156987, guid: 44be2b84a84976a4da04a1bc5e42afb0, type: 3}
       propertyPath: m_Name
       value: Snail_prototype2
@@ -1505,7 +1546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4987546128911156991, guid: 44be2b84a84976a4da04a1bc5e42afb0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.75
+      value: 0.442
       objectReference: {fileID: 0}
     - target: {fileID: 4987546128911156991, guid: 44be2b84a84976a4da04a1bc5e42afb0, type: 3}
       propertyPath: m_LocalPosition.z

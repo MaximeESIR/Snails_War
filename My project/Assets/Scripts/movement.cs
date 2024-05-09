@@ -19,6 +19,7 @@ public class movement : MonoBehaviour
     {
        //var mesh = GetComponentsInChildren<MeshRenderer>().ToList();
        // mesh.ForEach(m => m.material = mat_ref);
+       //GetComponent<Rigidbody>().centerOfMass = new Vector3(0, 0, 0);
     }
 
     // Update is called once per frame
