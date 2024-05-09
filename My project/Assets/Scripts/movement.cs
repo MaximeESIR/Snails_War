@@ -14,12 +14,14 @@ public class movement : MonoBehaviour
     public List<Material> materials;
     public Material mat_roues;
 
+    //Devient true quand on rencontre un CoquillePoint;
+    public bool is_CoquillePoint=false;
+
 
     void Start()
     {
        //var mesh = GetComponentsInChildren<MeshRenderer>().ToList();
        // mesh.ForEach(m => m.material = mat_ref);
-       //GetComponent<Rigidbody>().centerOfMass = new Vector3(0, 0, 0);
     }
 
     // Update is called once per frame
@@ -31,8 +33,8 @@ public class movement : MonoBehaviour
 
         transform.Rotate(Vector3.up, Time.deltaTime * deplacementHorizontal * turnSpeed);
         if (auSol)
-        {
-            GetComponent<Rigidbody>().AddForce(this.transform.forward * Time.deltaTime * deplacementVertical * speed, ForceMode.VelocityChange);
+        {                     //this.transform.forward pour toi théo coucou, les prefabs sont mal aligné donc c est .right :)
+            GetComponent<Rigidbody>().AddForce(this.transform.right * Time.deltaTime * deplacementVertical * speed, ForceMode.VelocityChange);
             Animation anim = GetComponent<Animation>();
             
             // Ajoutez une force vers le haut pour simuler le saut
@@ -65,6 +67,11 @@ public class movement : MonoBehaviour
         if (collision.gameObject.tag == "terrain")
         {
             auSol = false;
+        }
+        if (collision.gameObject.tag == "Coquille_Point")
+        {
+            Destroy(collision.gameObject);
+            is_CoquillePoint=true;
         }
     }
     public void changerCOULEUR(Material material) {
