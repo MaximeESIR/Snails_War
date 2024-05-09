@@ -52,7 +52,7 @@ public class annonceur : MonoBehaviour
             bool is_CoquillePoint=movementScript.is_CoquillePoint;
             if(is_CoquillePoint==true){
                 movementScript.is_CoquillePoint=false;
-                if(quest_list[index_quest+1]=="intro"){
+                if(quest_list[index_quest]=="intro"){
                     quete_grande.text="vous avez trouvé la Coquille Point! génial. ";
                     conseils.text=" appuyez sur entrer";
                     can_skip=true;
