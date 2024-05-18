@@ -12,15 +12,9 @@ public class InitTestScene : MonoBehaviour
     void Start()
     {
         Instantiate(environment, new Vector3(0, 0, 0), basicSnail.transform.rotation) ;
-        Instantiate(basicSnail, new Vector3(0, 1, 2), snailGeneral.transform.rotation) ;
+        //Instantiate(basicSnail, new Vector3(0, 1, 2), snailGeneral.transform.rotation) ;
         //Instantiate(snailGeneral, new Vector3(0, 1, 0), basicSnail.transform.rotation) ;
-        Instantiate(basicSlug, new Vector3(0, 1, 1), basicSnail.transform.rotation) ;
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        //Instantiate(basicSlug, new Vector3(0, 1, 1), basicSnail.transform.rotation) ;
         
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Arme
   - Coquille_Point
+  - Snail
   layers:
   - Default
   - TransparentFX
