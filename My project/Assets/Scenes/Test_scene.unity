@@ -674,6 +674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabList:
   - {fileID: 6439487238982464359, guid: 320e917ebbc7b994b9a748840b963b19, type: 3}
+  - {fileID: 841065252978041908, guid: cee8ad1d52b78e4428773495bb31faae, type: 3}
   name: Grass
   nbTrees: 50
   xMin: -50
@@ -695,6 +696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77622c1d31ebe104a94886edc31979a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  is_SnailSelected: 0
 --- !u!4 &478288099097064411
 Transform:
   m_ObjectHideFlags: 0
@@ -1392,8 +1394,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e474dd1d884a3f43947f6eaf10e0c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
   m_target: {x: 0, y: 0, z: 0}
   m_newTarget: {x: 0, y: 0, z: 0}
+  speed: 2
 --- !u!1 &9127666444741005600
 GameObject:
   m_ObjectHideFlags: 0
