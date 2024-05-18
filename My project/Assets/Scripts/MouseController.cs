@@ -5,6 +5,7 @@ using UnityEngine;
 public class MouseController : MonoBehaviour
 {
     private GameObject m_selectedSnail;
+    public bool is_SnailSelected=false;
 
     // Update is called once per frame
     void Update()
@@ -26,12 +27,14 @@ public class MouseController : MonoBehaviour
                 {
                     Debug.Log("c'est un snail, Youpi !!!");
                     m_selectedSnail = gObj;
+                    is_SnailSelected=true;
                 }
                 // Si un escargot à été sélectionné précédemment
                 else if (m_selectedSnail != null)
                 {
                     m_selectedSnail.GetComponent<Snail>().newTarget(hit.point);
                     m_selectedSnail = null;
+                    is_SnailSelected=false;
                 }
             }
         }
