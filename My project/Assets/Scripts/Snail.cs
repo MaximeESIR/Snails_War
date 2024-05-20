@@ -54,6 +54,10 @@ public class Snail : MonoBehaviour
         if(transform.position==m_newTarget){
             state=SnailState.inactif;
         }
+        if(state==SnailState.inactif){
+            //Faire un  truc pour qu'il bouge tout seul
+        }
+
 
 
 
@@ -71,4 +75,7 @@ public class Snail : MonoBehaviour
     {
         // TODO : Prise de décision de l'escargot
     }
+
+    
+
 }
