@@ -31,7 +31,6 @@ public class Ennemy : MonoBehaviour
         float distance = Vector3.Distance(transform.position, startPosition);
         if (distance > maxDistance)
         {
-            Debug.Log("OUCHHHHHHHHHHHHHHHHHHHHHHHHHHHH "+(distance-maxDistance));
             //On bouge grâce à une interpollation classique
             transform.position=UnityEngine.Vector3.MoveTowards(transform.position,startPosition,1f*Time.deltaTime);
             // direction vers la position de départ
@@ -39,7 +38,6 @@ public class Ennemy : MonoBehaviour
             direction.y=0; //sinon ca va pas être beau à voir! 
             UnityEngine.Quaternion rotation=UnityEngine.Quaternion.LookRotation(direction);//Utilisation d'un quaternion pour l'interpolation
             transform.rotation=UnityEngine.Quaternion.Lerp(transform.rotation,rotation,2f*Time.deltaTime);
-
         }
         else
         {
@@ -56,11 +54,6 @@ public class Ennemy : MonoBehaviour
             direction.y=0; //sinon ca va pas être beau à voir! 
             UnityEngine.Quaternion rotation=UnityEngine.Quaternion.LookRotation(direction);//Utilisation d'un quaternion pour l'interpolation
             transform.rotation=UnityEngine.Quaternion.Lerp(transform.rotation,rotation,2f*Time.deltaTime);
-            Debug.Log("Position actuelle : " + transform.position);
-            Debug.Log("direction : " + direction);
-            Debug.Log("Destination temporaire : " + whereToGo);
-            Debug.Log("Distance à la destination : " + Vector3.Distance(transform.position, whereToGo));
-
         }
     }
 //Fonciton permettant de retirer des pv à l'ennemy et de supprimer l'object s'il meurt

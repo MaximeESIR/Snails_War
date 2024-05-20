@@ -310,6 +310,7 @@ MonoBehaviour:
   auSol: 1
   materials: []
   mat_roues: {fileID: 0}
+  is_CoquillePoint: 0
 --- !u!54 &2345759059535569235
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -337,8 +338,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0577769, y: 0.89253974, z: 1.2030196}
+  m_Center: {x: -0.0012927055, y: -0.008397862, z: 0.06291706}
 --- !u!1 &6883744224565703179
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,8 +725,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 2.241473e-13, y: -0.21190615, z: -1.4046344}
+  m_Size: {x: 1.3959475, y: 0.5905155, z: 1.0771356}
+  m_Center: {x: 0.0000004470348, y: -0.21193147, z: -1.3711363}
 --- !u!1 &7121237377103585660
 GameObject:
   m_ObjectHideFlags: 0
