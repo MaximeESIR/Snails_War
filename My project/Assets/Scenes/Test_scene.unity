@@ -449,7 +449,7 @@ GameObject:
   - component: {fileID: 465303350}
   - component: {fileID: 465303349}
   m_Layer: 0
-  m_Name: TestEnnemi
+  m_Name: Ennemi_type1
   m_TagString: Ennemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1833,7 +1833,7 @@ GameObject:
   - component: {fileID: 7962224492564774768}
   - component: {fileID: 7962224492564774770}
   m_Layer: 0
-  m_Name: Snail_Proto
+  m_Name: Snail_de_base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
