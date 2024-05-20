@@ -34,14 +34,14 @@ public class GameMasterCamera : MonoBehaviour
             transform.position = snail.transform.position + 2*Vector3.up;
         }
         else {
-            // Déplacement devant derrière (touches 5 et 0)
+            /*// Déplacement devant derrière (touches 5 et 0)
             currentSpeed += speed * (
             boolToInt(Input.GetKeyDown(KeyCode.Keypad5))
             - boolToInt(Input.GetKeyUp(KeyCode.Keypad5))
             - boolToInt(Input.GetKeyDown(KeyCode.Keypad0))
             + boolToInt(Input.GetKeyUp(KeyCode.Keypad0)));
-            transform.Translate(Vector3.forward*currentSpeed*Time.deltaTime);
-
+            transform.Translate(Vector3.right*currentSpeed*Time.deltaTime);
+*/
             // Déplacement côtés (touches 1 et 3)
             currentSideSpeed += speed * (
             boolToInt(Input.GetKeyDown(KeyCode.Keypad1))
@@ -50,12 +50,12 @@ public class GameMasterCamera : MonoBehaviour
             + boolToInt(Input.GetKeyUp(KeyCode.Keypad3)));
             transform.Translate(Vector3.left*currentSideSpeed*Time.deltaTime);
 
-            // Déplacement haut/bas (touche - et +)
+            // Déplacement haut/bas (touche 5 et 2)
             currentHeightSpeed += speed * (
-            boolToInt(Input.GetKeyDown(KeyCode.KeypadMinus))
-            - boolToInt(Input.GetKeyUp(KeyCode.KeypadMinus))
-            - boolToInt(Input.GetKeyDown(KeyCode.KeypadPlus))
-            + boolToInt(Input.GetKeyUp(KeyCode.KeypadPlus)));
+            boolToInt(Input.GetKeyDown(KeyCode.Keypad5))
+            - boolToInt(Input.GetKeyUp(KeyCode.Keypad5))
+            - boolToInt(Input.GetKeyDown(KeyCode.Keypad2))
+            + boolToInt(Input.GetKeyUp(KeyCode.Keypad2)));
             transform.Translate(Vector3.up*currentHeightSpeed*Time.deltaTime);
 
         }
@@ -68,12 +68,13 @@ public class GameMasterCamera : MonoBehaviour
             + boolToInt(Input.GetKeyUp(KeyCode.Keypad6)));
             transform.Rotate(Vector3.up, -currentSideTurnSpeed*Time.deltaTime);
 
-            // Rotations haut/bas (touche 8 et 2)
+            // Rotations haut/bas (touche 7 et 9)
             currentHeightTurnSpeed += turnSpeed * (
-            boolToInt(Input.GetKeyDown(KeyCode.Keypad8))
-            - boolToInt(Input.GetKeyUp(KeyCode.Keypad8))
-            - boolToInt(Input.GetKeyDown(KeyCode.Keypad2))
-            + boolToInt(Input.GetKeyUp(KeyCode.Keypad2)));
+            boolToInt(Input.GetKeyDown(KeyCode.Keypad7))
+            - boolToInt(Input.GetKeyUp(KeyCode.Keypad7))
+            - boolToInt(Input.GetKeyDown(KeyCode.Keypad9))
+            + boolToInt(Input.GetKeyUp(KeyCode.Keypad9)));
             transform.Rotate(Vector3.right, -currentHeightTurnSpeed*Time.deltaTime);
+
     }
 }

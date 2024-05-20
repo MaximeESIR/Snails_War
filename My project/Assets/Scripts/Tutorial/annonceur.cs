@@ -65,9 +65,9 @@ public class annonceur : MonoBehaviour
             }
             if(quest_list[index_quest]=="mouvement2" && !mouseScript.is_SnailSelected){
                 quete_grande.text="Oh, l'escargot bouge! lentement... mais il bouge! C'est tout pour le moment jeune coquille. Reviens me voir à la prochaine update: click sur echap";
-                conseils.text="";
+                conseils.text="Appuie sur Echap";
                 can_skip=false;
-                index_quest+=1;
+
             }
         
         }

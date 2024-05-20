@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Numerics;
 using UnityEditor;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 //Structure Etat de l'escargot, peut servir de machine à état..
 public enum SnailState{
     inactif, //Il n'est pas contraint de se diriger vers une position X
@@ -12,10 +12,15 @@ public enum SnailState{
 
 public class Snail : MonoBehaviour
 {
+    private int Hp=1000; //La vie de l'escargot 
+    public GameObject deadPrefab; //La coquille quand on meurt
+    public Material targetMaterial;
     public SnailState state=SnailState.inactif; //Au départ il est inactif
     public UnityEngine.Vector3 m_target;
     public UnityEngine.Vector3 m_newTarget; //Zone à atteindre
     public float speed=2f;
+    //hp : 
+ 
 
     void Start()
     {
@@ -25,21 +30,14 @@ public class Snail : MonoBehaviour
         // L'escargot prend des décisions à intervalle régulier quand
         // il n'a pas de directive précise (pas encore finit)
         InvokeRepeating("setTarget", 1, 2);
+         targetMaterial.color = Color.white;
+  
     }
 
     // Update is called once per frame
     void Update()
     {
-        // TODO : Déplacement de l'escargot et actions en fonction des
-        // directives (faire un truc du style machine à états)
-       /* if(m_target != null)
-        {
-            state=SnailState.mouvement;
-            transform.position = m_target;
-        }
-        
-        */
-        //il faurait ajouter un etat où si l'escargot est coincé il tente de se décoincer
+                //il faurait ajouter un etat où si l'escargot est coincé il tente de se décoincer
         if(state==SnailState.hasToMove){
             //Deplacement de l'escargot dans la direction de la targer
             transform.position=UnityEngine.Vector3.MoveTowards(transform.position,m_newTarget,speed*Time.deltaTime);
@@ -74,6 +72,19 @@ public class Snail : MonoBehaviour
     private void setTarget()
     {
         // TODO : Prise de décision de l'escargot
+    }
+    public void takeDamage(int attack){
+        Hp-=attack;
+        Color n=new Color(1/2000f, 1/2000f, 1/2000f);
+        targetMaterial.color = targetMaterial.color -attack*n;
+
+        if(Hp<=0){
+            Destroy(gameObject);
+            Instantiate(deadPrefab, transform.position, transform.rotation);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1);
+            Debug.Log(Hp);
+;        }
+
     }
 
     
