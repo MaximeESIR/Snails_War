@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3743630303669732571}
   m_Layer: 0
   m_Name: Snail_de_base 2
-  m_TagString: Untagged
+  m_TagString: Snail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,10 +103,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_deadPrefab: {fileID: 8192867243702168216, guid: fc17072a0951dca44a9d3494d2a443cc, type: 3}
-  targetMaterial: {fileID: 2100000, guid: 336e9227987c61644b91241efbf031e8, type: 2}
   m_state: 2
-  speed: 2
+  speed: 1
   m_target: {x: 0, y: 0, z: 0}
+  m_hp: 1000
 --- !u!1 &437108919740001472
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,6 +878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2021c6fed46cdcc41a2a56c02cad25f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_owner: Snail
 --- !u!54 &6471235552545107041
 Rigidbody:
   m_ObjectHideFlags: 0

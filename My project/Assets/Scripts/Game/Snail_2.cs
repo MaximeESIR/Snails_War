@@ -19,16 +19,17 @@ public class Snail_2 : MonoBehaviour
 
     private GameObject m_EnnemyTarget = null;
     public UnityEngine.Vector3 m_target; // Position que l'escargot doit atteindre
-    private float m_timeBeforeNextDecision = 1;
+    public float m_timeBeforeNextDecision;
+    public int m_hp = 1000;
+    private float visionRadius = 20f;
+
 
     private State m_forLogState = State.WAIT;
 
     // Start is called before the first frame update
     void Start()
     {
-        // L'escargot obient le tag "Snail" qui lui permet d'être
-        // Reconnu par d'autres scripts
-        gameObject.tag  = "Snail";
+        m_timeBeforeNextDecision = Random.Range(0.5f, 2);
     }
 
     // Update is called once per frame
@@ -53,7 +54,6 @@ public class Snail_2 : MonoBehaviour
             break;
         }
         m_timeBeforeNextDecision -= Time.deltaTime;
-
         logState();
     }
 
@@ -66,29 +66,71 @@ public class Snail_2 : MonoBehaviour
             m_state=State.AUTO;
         }
     }
-
     private void wait()
     {
         if(m_timeBeforeNextDecision < 0)
             m_state = State.AUTO;
     }
-
     private void actAuto()
     {
         if(m_timeBeforeNextDecision < 0)
         {
-            m_timeBeforeNextDecision = 2;
+            m_timeBeforeNextDecision = 2f;
             // Take a decision : target an ennemy or follow other snails
-            m_EnnemyTarget = InitTestScene.getClosestEnnemyfrom(transform.position);
-            float distanceTarget = Vector3.Distance(transform.position, m_EnnemyTarget.transform.position);
+            GameObject nearestEnnemy = InitTestScene.getNearestEnnemy(gameObject, visionRadius);
+            GameObject nearestAlly = InitTestScene.getNearestAlly(gameObject, visionRadius);
+            if(nearestAlly == null)
+            {
+                if (nearestEnnemy == null)
+                {
+                    // Pas d'allié ni d'ennemi : on attend
+                    m_state = State.WAIT;
+                    return;
+                }
+                else
+                {
+                    // Fuit l'ennemi lorsqu'il est seul
+                    m_target = 2*transform.position - nearestEnnemy.transform.position;
+                }
+            }
+            else
+            {
+                if (nearestEnnemy == null)
+                {
+                    // Direction dans laquelle va chercher à aller l'escargot
+                    Vector3 targetDirection;
+                    float distAlly = Vector3.Distance(transform.position, nearestAlly.transform.position);
+
+                    // S'écarte d'un allié trop proche
+                    if(distAlly < 5)
+                        m_target = (transform.position - nearestAlly.transform.position)/distAlly + transform.position;
+                    
+                    // Va dans la même direction qu'un allié pas trop éloigné
+                    else if(distAlly < 2*visionRadius/3)
+                    {
+                        Vector3 allyDirection = (nearestAlly.transform.TransformDirection(Vector3.forward) - nearestAlly.transform.position);
+                        m_target = allyDirection + transform.position;
+                    }
+                    // Se rapproche de l'allié s'il est loin
+                    else
+                        m_target = nearestAlly.transform.position;
+                    
+                }
+                else
+                {
+                    // Attaque l'ennemi lorsqu'il est à plusieurs
+                    m_target = - transform.position + 2*nearestEnnemy.transform.position;
+                    Debug.Log("Ennemy non nul, target : "+m_target);
+                }
+            }
         }
         followTarget();
     }
 
     private void fight() {}
-
     private void die() {}
 
+    // Rapproche l'escargot de sa cible (position ou ennemi)
     private void followTarget()
     {
         // Maj de la direction ciblée si la cible est un ennemi
@@ -98,17 +140,28 @@ public class Snail_2 : MonoBehaviour
         UnityEngine.Vector3 direction=m_target-transform.position;
         direction.y=0;
         UnityEngine.Quaternion rotation=UnityEngine.Quaternion.LookRotation(direction);//Utilisation d'un quaternion pour l'interpolation
-        transform.rotation=UnityEngine.Quaternion.Lerp(transform.rotation,rotation,4f*Time.deltaTime);
+
+        transform.rotation=UnityEngine.Quaternion.RotateTowards(transform.rotation,rotation,80f*Time.deltaTime);
 
         //Deplacement de l'escargot
         transform.Translate(Vector3.forward*speed*Time.deltaTime);
+    }
+
+    public void takeDamage(int damage)
+    {
+        m_hp -= damage;
+
+        if(m_hp <= 0){
+            Destroy(gameObject);
+            Instantiate(m_deadPrefab, transform.position, transform.rotation);
+            Debug.Log(m_hp);
+        }
     }
 
 
     private void logState()
     {
         if(m_state == m_forLogState) return;
-
 
         Debug.Log("Nouvel état " + m_state);
         m_forLogState = m_state;

@@ -5,14 +5,13 @@ using UnityEngine;
 public class InitTestScene : MonoBehaviour
 {
     public GameObject environment;
-    public GameObject basicSnail;
     public GameObject basicSnail2;
     public GameObject ennemy;
     public GameObject scene;
     public GameObject flower;
     public GameObject grass;
-    public int m_nbAllies=5;
-    public int m_nbEnnemy=20;
+    private int m_nbAllies=25;
+    private int m_nbEnnemy=20;
 
     private static GameObject[] ennemies;
     private static GameObject[] allies;
@@ -21,21 +20,26 @@ public class InitTestScene : MonoBehaviour
     void Start()
     {
         Instantiate(environment, new Vector3(0, 0, 0), environment.transform.rotation) ;
-//        Instantiate(basicSnail, new Vector3(0, 0, 0), basicSnail.transform.rotation) ;
-//        Instantiate(basicSnail2, new Vector3(0, 0, 1), basicSnail.transform.rotation) ;
 
-        ForestSpawner.generate(flower, "Flowers", 50,
+        // Génération aléatoire des fleurs et de l'herbe
+        ForestSpawner.generate(flower, "Flowers", 30,
                                 10, 30, 10, 30,
-                                0.7f, 1.3f, 10);
-
+                                1.7f, 2.3f, 10);
         ForestSpawner.generate(grass, "Grass", 200,
                                 -50, 50, -50, 50,
                                 0.7f, 1.3f, 10);
 
-
+        // Génération des escargots alliés et ennemis
         allies = ForestSpawner.generate(basicSnail2, "Allies", m_nbAllies, -10, 10, -10, 10);
-        ennemies = ForestSpawner.generate(ennemy, "Ennemies", m_nbEnnemy, -50, 50, -50, 50);
+        ennemies = new GameObject[2*m_nbEnnemy];
 
+        GameObject[] tempEnnemies1 = ForestSpawner.generate(ennemy, "Ennemies", m_nbEnnemy, 30, 50, 30, 50);
+        GameObject[] tempEnnemies2 = ForestSpawner.generate(ennemy, "Ennemies", m_nbEnnemy, -50, -30, -50, -30);
+        for (int i = 0 ; i < m_nbEnnemy ; i++)
+        {
+            ennemies[2*i] = tempEnnemies1[i];
+            ennemies[2*i+1] = tempEnnemies2[i];
+        }
 
     }
 
@@ -46,14 +50,22 @@ public class InitTestScene : MonoBehaviour
         return null;
     }
 
-    public static GameObject getClosestEnnemyfrom(Vector3 v)
+    // Obtenir l'escargot situé le plus proche dans le camp ennemi
+    public static GameObject getNearestEnnemy(GameObject snail, float maxDist)
     {
+        GameObject[] tab;
+        if(snail.tag == "Snail")
+            tab = ennemies;
+        else
+            tab = allies;
+
         GameObject ret = null;
-        float d = 10000000;
-        foreach (GameObject e in ennemies)
+        float d = maxDist;
+        foreach (GameObject e in tab)
         {
             if(e == null) continue;
-            float d2 = Vector3.Distance(v, e.transform.position);
+            float d2 = Vector3.Distance(snail.transform.position,
+                                        e.transform.position);
             if(d2 < d)
             {
                 d = d2;
@@ -63,14 +75,21 @@ public class InitTestScene : MonoBehaviour
         return ret;
     }
 
-        public static GameObject getClosestAllyfrom(Vector3 v)
+    public static GameObject getNearestAlly(GameObject snail, float maxDist)
     {
+        GameObject[] tab;
+        if(snail.tag == "Snail")
+            tab = allies;
+        else
+            tab = ennemies;
+
         GameObject ret = null;
-        float d = 10000000;
-        foreach (GameObject e in allies)
+        float d = maxDist;
+        foreach (GameObject e in tab)
         {
-            if(e == null) continue;
-            float d2 = Vector3.Distance(v, e.transform.position);
+            if(e == null || e == snail) continue;
+            float d2 = Vector3.Distance(snail.transform.position,
+                                        e.transform.position);
             if(d2 < d)
             {
                 d = d2;

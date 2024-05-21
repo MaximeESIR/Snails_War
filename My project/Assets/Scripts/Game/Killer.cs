@@ -4,43 +4,15 @@ using UnityEngine;
 //A class for everything that can do dmg to an ennemy
 public class Killer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public string m_owner;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 //We do dmg to the ennemy. We coudl improve that..
-     private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "Ennemy")
-        {
-            Ennemy ennemyScript=collision.gameObject.GetComponent<Ennemy>();
-            if(ennemyScript!=null){
-                ennemyScript.takeDamage(5);
-            }
-        }
-    }
      private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "Ennemy")
+        if ((m_owner == "Snail" && collision.gameObject.tag == "Ennemy")
+        || m_owner == "Ennemy" && collision.gameObject.tag == "Snail")
         {
-            Ennemy ennemyScript=collision.gameObject.GetComponent<Ennemy>();
-            if(ennemyScript!=null){
-                ennemyScript.takeDamage(5);
-            }
-        }
-    }
-     private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Ennemy")
-        {
-            Ennemy ennemyScript=collision.gameObject.GetComponent<Ennemy>();
+            Snail_2 ennemyScript=collision.gameObject.GetComponent<Snail_2>();
             if(ennemyScript!=null){
                 ennemyScript.takeDamage(5);
             }

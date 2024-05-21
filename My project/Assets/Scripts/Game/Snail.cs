@@ -62,10 +62,6 @@ public class Snail : MonoBehaviour
         state=SnailState.hasToMove; //L'escargot se met en mouvement
     }
 
-    private void setTarget()
-    {
-        // TODO : Prise de décision de l'escargot
-    }
     public void takeDamage(int attack){
         Hp-=attack;
         Color n=new Color(1/2000f, 1/2000f, 1/2000f);

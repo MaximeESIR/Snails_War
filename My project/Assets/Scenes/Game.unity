@@ -494,7 +494,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &659644394
 GameObject:
@@ -803,7 +803,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2018585359}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -948,7 +948,7 @@ RectTransform:
   - {fileID: 42930772}
   - {fileID: 2143531533}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1212,7 +1212,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1490721098
 GameObject:
@@ -1453,7 +1453,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1547651418
 MonoBehaviour:
@@ -1467,7 +1467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c91fc0dcb2c9214a8335fea456e69ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: {fileID: 2018585359}
+  scene: {fileID: 0}
   menu: {fileID: 976796050}
 --- !u!1 &1777585962
 GameObject:
@@ -1500,14 +1500,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   environment: {fileID: 5039020035795781644, guid: 8052b2661ebf4a5419ca464c98e30a88, type: 3}
-  basicSnail: {fileID: 186565860633287894, guid: 6b6672b516c52d348a53ff62928c5a72, type: 3}
   basicSnail2: {fileID: 186565860633287894, guid: a2d82faaf5933d548a813751f65faf5f, type: 3}
   ennemy: {fileID: 591704263799501382, guid: 3259d703244c3fe4695b74eea516d4a8, type: 3}
-  scene: {fileID: 2018585359}
+  scene: {fileID: 0}
   flower: {fileID: 3798844642199546930, guid: b5310c2159c07b145b38c9ce444d0151, type: 3}
   grass: {fileID: 6439487238982464359, guid: 320e917ebbc7b994b9a748840b963b19, type: 3}
-  m_nbAllies: 5
-  m_nbEnnemy: 20
 --- !u!4 &1777585964
 Transform:
   m_ObjectHideFlags: 0
@@ -1715,37 +1712,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &2018585359
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2018585360}
-  m_Layer: 0
-  m_Name: Scene
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2018585360
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018585359}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.50163, y: 2.2310777, z: 3.0894363}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2057023324
 GameObject:
   m_ObjectHideFlags: 0
