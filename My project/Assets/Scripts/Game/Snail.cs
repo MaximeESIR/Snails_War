@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -27,11 +26,7 @@ public class Snail : MonoBehaviour
         // L'escargot obient le tag "Snail" qui lui permet d'être
         // Reconnu par d'autres scripts
         gameObject.tag  = "Snail";
-        // L'escargot prend des décisions à intervalle régulier quand
-        // il n'a pas de directive précise (pas encore finit)
-        InvokeRepeating("setTarget", 1, 2);
-         targetMaterial.color = Color.white;
-  
+        targetMaterial.color = Color.white;  
     }
 
     // Update is called once per frame
@@ -46,10 +41,8 @@ public class Snail : MonoBehaviour
             direction.y=0; //sinon ca va pas être beau à voir! 
             UnityEngine.Quaternion rotation=UnityEngine.Quaternion.LookRotation(direction);//Utilisation d'un quaternion pour l'interpolation
             transform.rotation=UnityEngine.Quaternion.Lerp(transform.rotation,rotation,2f*Time.deltaTime);
-
-            
         }
-        if(transform.position==m_newTarget){
+        if(Vector3.Distance(transform.position, m_newTarget) < 0.1){
             state=SnailState.inactif;
         }
         if(state==SnailState.inactif){
@@ -61,7 +54,7 @@ public class Snail : MonoBehaviour
 
     }
 
-    // Fonction appelée depuis MouseController pour mettre à jour la target de l'escargot
+    // Fonction appelée depuis MouseController.cs pour mettre à jour la target de l'escargot
     public void newTarget(UnityEngine.Vector3 t)
     {
         //m_target = t;

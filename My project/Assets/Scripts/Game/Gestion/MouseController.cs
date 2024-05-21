@@ -28,11 +28,15 @@ public class MouseController : MonoBehaviour
                     Debug.Log("c'est un snail, Youpi !!!");
                     m_selectedSnail = gObj;
                     is_SnailSelected=true;
+                    m_selectedSnail.GetComponent<Snail_2>().makeWait();                    
                 }
                 // Si un escargot à été sélectionné précédemment
                 else if (m_selectedSnail != null)
                 {
-                    m_selectedSnail.GetComponent<Snail>().newTarget(hit.point);
+                    if(gObj.tag == "Ennemy")
+                        m_selectedSnail.GetComponent<Snail_2>().newTarget(gObj);                    
+                    else
+                        m_selectedSnail.GetComponent<Snail_2>().newTarget(hit.point);
                     m_selectedSnail = null;
                     is_SnailSelected=false;
                 }

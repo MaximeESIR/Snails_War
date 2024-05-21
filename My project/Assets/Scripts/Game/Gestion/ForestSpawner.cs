@@ -4,30 +4,36 @@ using UnityEngine;
 
 public class ForestSpawner : MonoBehaviour
 {
-    public GameObject[] prefabList;
-    public new string name;
-    public int nbTrees;
-    public float xMin, xMax, zMin, zMax;
-    public float minScale, maxScale;
-    public float inclinaisonMax;
-
     
+    public static GameObject[] generate(
+    GameObject prefab,
+    string groupName,
+    int nb,
+    float xMin, float xMax, float zMin, float zMax)
+    {
+        return generate(prefab, groupName, nb, xMin, xMax, zMin, zMax, 1, 1, 0);
+    }
 
-    // Start is called before the first frame update
-    void Start()
+
+    public static GameObject[] generate(
+    GameObject prefab,
+    string groupName,
+    int nb,
+    float xMin, float xMax, float zMin, float zMax,
+    float minScale, float maxScale,
+    float inclinaisonMax)
     {
         // Crée un game object qui contiendra toute les instances générées
-        GameObject forest = new GameObject(name);
-        for (int i = 0 ; i < nbTrees ; i++)
+        GameObject forest = new GameObject(groupName);
+        GameObject[] elements = new GameObject[nb];
+        for (int i = 0 ; i < nb ; i++)
         {
             // Tirer une position aléatoire
             float posX = Random.Range(xMin, xMax);
             float posZ = Random.Range(zMin, zMax);
             // Tirer une taille aléatoire
-            // Tirer un prefab aléatoire parmi ceux disponibles
-            GameObject randomTree = prefabList[Random.Range(0, prefabList.Length)];
             // Créer une copie avec la position et l'orientation voulue
-            GameObject myTree = Instantiate(randomTree, new Vector3(posX, 0, posZ), randomTree.transform.rotation) ;
+            GameObject myTree = Instantiate(prefab, new Vector3(posX, 0, posZ), prefab.transform.rotation) ;
             
             // Modifier les rotations de l'objet pour plus de diversité
             float rotationX = Random.Range(-inclinaisonMax, inclinaisonMax);
@@ -40,8 +46,13 @@ public class ForestSpawner : MonoBehaviour
             // Change le scale de l'objet
             myTree.transform.localScale = new Vector3(1, 1, 1) * Random.Range(minScale, maxScale);
 
-            // Rattache l'objet instancié à l'objet forest
+            // Rattache l'objet instancié à l'objet parent
             myTree.transform.SetParent(forest.transform);
+
+            // Ajout de l'objet au tableau
+            elements[i] = myTree;
         }
+
+        return elements;
     }
 }

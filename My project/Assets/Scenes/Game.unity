@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.42734563, g: 0.36704913, b: 0.65460455, a: 1}
+  m_IndirectSpecularColor: {r: 0.4272935, g: 0.3671471, b: 0.6544735, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -494,7 +494,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &659644394
 GameObject:
@@ -948,7 +948,7 @@ RectTransform:
   - {fileID: 42930772}
   - {fileID: 2143531533}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1047,7 +1047,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1040086757
 GameObject:
@@ -1212,7 +1212,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1490721098
 GameObject:
@@ -1453,7 +1453,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1547651418
 MonoBehaviour:
@@ -1479,7 +1479,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1777585964}
   - component: {fileID: 1777585963}
-  - component: {fileID: 1777585965}
   - component: {fileID: 1777585966}
   m_Layer: 0
   m_Name: SceneManager
@@ -1502,8 +1501,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   environment: {fileID: 5039020035795781644, guid: 8052b2661ebf4a5419ca464c98e30a88, type: 3}
   basicSnail: {fileID: 186565860633287894, guid: 6b6672b516c52d348a53ff62928c5a72, type: 3}
+  basicSnail2: {fileID: 186565860633287894, guid: a2d82faaf5933d548a813751f65faf5f, type: 3}
   ennemy: {fileID: 591704263799501382, guid: 3259d703244c3fe4695b74eea516d4a8, type: 3}
   scene: {fileID: 2018585359}
+  flower: {fileID: 3798844642199546930, guid: b5310c2159c07b145b38c9ce444d0151, type: 3}
+  grass: {fileID: 6439487238982464359, guid: 320e917ebbc7b994b9a748840b963b19, type: 3}
+  m_nbAllies: 5
+  m_nbEnnemy: 20
 --- !u!4 &1777585964
 Transform:
   m_ObjectHideFlags: 0
@@ -1512,37 +1516,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777585962}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.50163, y: -2.2310777, z: -3.0894363}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2018585360}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1777585965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1777585962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adea5ee07eeb98a4fb51a4800ff987b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabList:
-  - {fileID: 6439487238982464359, guid: 320e917ebbc7b994b9a748840b963b19, type: 3}
-  - {fileID: 841065252978041908, guid: cee8ad1d52b78e4428773495bb31faae, type: 3}
-  name: Grass
-  nbTrees: 50
-  xMin: -50
-  xMax: 50
-  zMin: -50
-  zMax: 50
-  minScale: 0.5
-  maxScale: 1.5
-  inclinaisonMax: 10
 --- !u!114 &1777585966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1762,10 +1742,9 @@ Transform:
   m_LocalPosition: {x: 16.50163, y: 2.2310777, z: 3.0894363}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1777585964}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2057023324
 GameObject:
