@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Classe qui permet de récuperer les escargots proches d'un gameobject.
 public class SnailsManager : MonoBehaviour
 {
-    private static GameObject[] m_ennemies;
+    private static GameObject[] m_ennemies; 
     private static GameObject[] m_allies;
 
+    //Settler ennemies
     public static void setEnnemies(GameObject[] ennemies) {m_ennemies = ennemies;}
+    //Settler allies
     public static void setAllies(GameObject[] allies) {m_allies = allies;}
 
-
+    //Getters
     public static GameObject[] getEnnemies() {return m_ennemies; }
     public static GameObject[] getAllies() {return m_allies; }
 

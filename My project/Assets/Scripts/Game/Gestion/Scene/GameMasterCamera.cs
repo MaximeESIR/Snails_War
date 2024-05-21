@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Caméra du joueur
 public class GameMasterCamera : MonoBehaviour
 {
     public float speed = 20.0f;

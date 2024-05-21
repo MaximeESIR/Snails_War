@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Gestion de la sellection des escargots à l'aide d'un click.
 public class MouseController : MonoBehaviour
 {
-    private GameObject m_selectedSnail;
+    private GameObject m_selectedSnail; // l'escargot selectionné.
     public bool is_SnailSelected=false;
 
     // Update is called once per frame

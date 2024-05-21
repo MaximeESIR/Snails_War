@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//A class for everything that can do dmg to an ennemy
+// NON UTILISE HS
 public class KillerSnail : MonoBehaviour
 {
     // Start is called before the first frame update

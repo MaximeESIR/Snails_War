@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//Classe Ennemy. est attaché à un ennemy.
 
+//NON UTILISE. HS, version tests des ennemis.
 public class Ennemy : MonoBehaviour
 {
-    public GameObject deadEnemyPrefab; 
+    public GameObject deadEnemyPrefab; //Prefab après la mort
     private int Hp=300;
     //Position dont on va éviter de s'éloigner 
     private Vector3 startPosition;

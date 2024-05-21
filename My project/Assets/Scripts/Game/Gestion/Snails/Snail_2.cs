@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Classe type d'un escargot
 public enum State{
-    WAIT,   // Attend un ordre
+    WAIT,   // Attente un ordre
     OBEY,   // Obéit à un ordre
     AUTO,   // Prend des décisions tout seul
     FIGHT,  // Combat un ennemi
@@ -14,13 +14,13 @@ public class Snail_2 : MonoBehaviour
 {
     public GameObject m_deadPrefab; //La coquille quand on meurt
     public State m_state = State.AUTO; //Au départ agit tout seul
-    public float speed=2f;
+    public float speed=2f; //Rapidité de l'escargot à avancer.
 
-    private GameObject m_EnnemyTarget = null;
+    private GameObject m_EnnemyTarget = null; //Si cible un ennemie
     public UnityEngine.Vector3 m_target; // Position que l'escargot doit atteindre
-    public float m_timeBeforeNextDecision;
-    public int m_hp = 1000;
-    private float visionRadius = 20f;
+    public float m_timeBeforeNextDecision; //Defini le temps avant de redécider d'une action
+    public int m_hp = 1000; //Vie de l'escargot
+    private float visionRadius = 20f; //Zone de vision pour la prise d'action.
 
 
     private State m_forLogState = State.WAIT;

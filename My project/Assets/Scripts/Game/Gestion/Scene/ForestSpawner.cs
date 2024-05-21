@@ -48,7 +48,6 @@ public class ForestSpawner : MonoBehaviour
 
             // Rattache l'objet instancié à l'objet parent
             myTree.transform.SetParent(forest.transform);
-
             // Ajout de l'objet au tableau
             elements[i] = myTree;
         }

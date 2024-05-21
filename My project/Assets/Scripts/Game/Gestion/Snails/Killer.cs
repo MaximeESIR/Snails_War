@@ -6,7 +6,7 @@ public class Killer : MonoBehaviour
 {
     public string m_owner;
 
-//We do dmg to the ennemy. We coudl improve that..
+//We do dmg to the ennemy.
      private void OnCollisionStay(Collision collision)
     {
         if ((m_owner == "Snail" && collision.gameObject.tag == "Ennemy")

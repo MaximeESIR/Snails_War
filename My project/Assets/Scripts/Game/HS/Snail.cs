@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-//Structure Etat de l'escargot, peut servir de machine à état..
+// NON UTILISE HS. Version test qui peut servir
 public enum SnailState{
     inactif, //Il n'est pas contraint de se diriger vers une position X
     hasToMove //Obligation pour l'escargot d'avancer jusqu'à une certaine position
