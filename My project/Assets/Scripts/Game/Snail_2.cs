@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static InitTestScene;
 
 public enum State{
     WAIT,   // Attend un ordre
@@ -77,8 +76,8 @@ public class Snail_2 : MonoBehaviour
         {
             m_timeBeforeNextDecision = 2f;
             // Take a decision : target an ennemy or follow other snails
-            GameObject nearestEnnemy = InitTestScene.getNearestEnnemy(gameObject, visionRadius);
-            GameObject nearestAlly = InitTestScene.getNearestAlly(gameObject, visionRadius);
+            GameObject nearestEnnemy = SnailsManager.getNearestEnnemy(gameObject, visionRadius);
+            GameObject nearestAlly = SnailsManager.getNearestAlly(gameObject, visionRadius);
             if(nearestAlly == null)
             {
                 if (nearestEnnemy == null)
