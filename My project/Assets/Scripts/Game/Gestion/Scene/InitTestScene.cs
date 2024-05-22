@@ -11,7 +11,7 @@ public class InitTestScene : MonoBehaviour
     public GameObject flower;   //La fleur rose
     public GameObject grass;    //L'herbe
     private int m_nbAllies=25;  //Paramétrage du nombre d'alliés
-    private int m_nbEnnemy=20;  //Paramétrage du nombre d'ennemis
+    private int m_nbEnnemy=10;  //Paramétrage du nombre d'ennemis
 
 
     // Start is called before the first frame update
